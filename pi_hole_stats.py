@@ -35,7 +35,7 @@ while True:
         continue
 
     piData = []
-    piData.append(['Host', str(HOST)])
+    piData.append(['Host', str(HOST).strip()])
     piData.append(["CPU Load", str(CPU)])
     piData.append(['Memory', str(MemUsage)])
     piData.append(["Disk", str(Disk)])
@@ -46,7 +46,7 @@ while True:
     piDataTable.title = '--RASPBERRY PI'
 
     piHoleData = []
-    piHoleData.append(['IP (ADD TO DNS)', str(IP)])
+    piHoleData.append(['IP (ADD TO DNS)', str(IP).strip()])
     piHoleData.append(["Ads Blocked: ", str(ADSBLOCKED)])
     piHoleData.append(["Clients:     ", str(CLIENTS)])
     piHoleData.append(["DNS Queries: ", str(DNSQUERIES)])
@@ -59,9 +59,10 @@ while True:
     # clear screen
     os.system('clear')
     print("")
-    print(piDataTable.table)
-    print("")
-    print("")
     print(piHoleDataTable.table)
+    print("")
+    print("")
+    print(piDataTable.table)
+
 
     time.sleep(0.9)
