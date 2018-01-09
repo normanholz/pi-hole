@@ -79,8 +79,8 @@ while True:
     os.system('clear')
     print("")
     print(piHoleDataTable.table)
-    print("")
-    print(piDataTable.table)
+    # print("")
+    # print(piDataTable.table)
 
 
     time.sleep(0.9)
