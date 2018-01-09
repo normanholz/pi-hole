@@ -5,6 +5,7 @@ import subprocess
 import os
 import json
 import requests
+from terminaltables import AsciiTable
 
 api_url = 'http://localhost/admin/api.php'
 
@@ -33,20 +34,34 @@ while True:
         time.sleep(1)
         continue
 
+    piData = []
+    piData.append(['IP', str(IP)])
+    piData.append(['Row two column one', str(CPU)])
+    piData.append(['Row three column one', str(MemUsage)])
+    piData.append(['Row three column one', str(Disk)])
+
+    piDataTable = AsciiTable(piData)
+    piDataTable.inner_heading_row_border = False
+    piDataTable.inner_row_border = True
+    piDataTable.title = 'RASPBERRY PI'
+
+    piHoleData = []
+    piHoleData.append(['IP', str(IP)])
+    piHoleData.append(["Ads Blocked: ", str(ADSBLOCKED)])
+    piHoleData.append(["Clients:     ", str(CLIENTS)])
+    piHoleData.append(["DNS Queries: ", str(DNSQUERIES)])
+
+    piHoleDataTable = AsciiTable(piHoleData)
+    piHoleDataTable.inner_heading_row_border = False
+    piHoleDataTable.inner_row_border = True
+    piHoleDataTable.title = "PI - HOLE AD BLOCKER"
+
     # clear screen
     os.system('clear')
-
-    # print("IP: " + str(IP) + "(" + str(HOST) + ")")
-    print("############# RASPBERRY PI #############")
-    print("IP: " + str(IP))
-    print(str(CPU))
-    print(str(MemUsage))
-    print(str(Disk))
+    print("")
+    print(piDataTable.table)
     print("")
     print("")
-    print("######### PI - HOLE AD BLOCKER #########")
-    print("Ads Blocked: " + str(ADSBLOCKED))
-    print("Clients:     " + str(CLIENTS))
-    print("DNS Queries: " + str(DNSQUERIES))
+    print(piHoleDataTable.table)
 
     time.sleep(0.9)
