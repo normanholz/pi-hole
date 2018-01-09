@@ -76,7 +76,10 @@ while True:
     # clear screen
     os.system('clear')
     print("")
+    print("")
+    print("")
     print(piDataTable.table)
+    print("")
     print("")
     print("")
     print(piHoleDataTable.table)
