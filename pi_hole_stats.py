@@ -57,7 +57,7 @@ while True:
     piDataTable.title = '--RASPBERRY PI'
 
     piHoleData = []
-    piHoleData.append(['IP (Add this as DNS)', str(IP).strip()])
+    piHoleData.append(['IP -> DNS', str(IP).strip()])
     piHoleData.append(["Clients", str(CLIENTS)])
     # piHoleData.append(["Domains", str(DOMAINS)])
     # piHoleData.append(["Domains blocked", str(BLOCKEDDOMAINS)])
