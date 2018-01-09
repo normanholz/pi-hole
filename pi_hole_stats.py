@@ -27,7 +27,6 @@ while True:
     try:
         r = requests.get(api_url)
         data = json.loads(r.text)
-        print(data)
 
         DNSQUERIES = data['dns_queries_today']
         ADSBLOCKED = data['ads_blocked_today']
