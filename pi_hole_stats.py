@@ -27,6 +27,8 @@ while True:
     try:
         r = requests.get(api_url)
         data = json.loads(r.text)
+        print(data)
+
         DNSQUERIES = data['dns_queries_today']
         ADSBLOCKED = data['ads_blocked_today']
         CLIENTS = data['unique_clients']
@@ -46,7 +48,7 @@ while True:
     piDataTable.title = '--RASPBERRY PI'
 
     piHoleData = []
-    piHoleData.append(['IP (ADD TO DNS)', str(IP).strip()])
+    piHoleData.append(['IP (Add this as DNS)', str(IP).strip()])
     piHoleData.append(["Ads Blocked: ", str(ADSBLOCKED)])
     piHoleData.append(["Clients:     ", str(CLIENTS)])
     piHoleData.append(["DNS Queries: ", str(DNSQUERIES)])
