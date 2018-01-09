@@ -60,7 +60,7 @@ while True:
     piHoleData.append(['IP -> DNS', str(IP).strip()])
     piHoleData.append(["Clients", str(CLIENTS)])
     # piHoleData.append(["Domains", str(DOMAINS)])
-    # piHoleData.append(["Domains blocked", str(BLOCKEDDOMAINS)])
+    piHoleData.append(["Domains blocked", str(BLOCKEDDOMAINS)])
     piHoleData.append(["DNS Queries", str(DNSQUERIES)])
 
     # QUERIES_FORWARDED = data['queries_forwarded']
