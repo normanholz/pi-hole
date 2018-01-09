@@ -16,11 +16,11 @@ while True:
     IP = subprocess.check_output(cmd, shell=True)
     # cmd = "hostname"
     # HOST = subprocess.check_output(cmd, shell=True)
-    cmd = "top -bn1 | grep load | awk '{printf \"CPU Load: %.2f\", $(NF-2)}'"
+    cmd = "top -bn1 | grep load | awk '{printf \"%.2f\", $(NF-2)}'"
     CPU = subprocess.check_output(cmd, shell=True)
-    cmd = "free -m | awk 'NR==2{printf \"Mem: %s/%sMB %.2f%%\", $3,$2,$3*100/$2 }'"
+    cmd = "free -m | awk 'NR==2{printf \"%s/%sMB %.2f%%\", $3,$2,$3*100/$2 }'"
     MemUsage = subprocess.check_output(cmd, shell=True)
-    cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3,$2,$5}'"
+    cmd = "df -h | awk '$NF==\"/\"{printf \"%d/%dGB %s\", $3,$2,$5}'"
     Disk = subprocess.check_output(cmd, shell=True)
 
     # Pi Hole data!
@@ -36,14 +36,14 @@ while True:
 
     piData = []
     piData.append(['IP', str(IP)])
-    piData.append(['Row two column one', str(CPU)])
-    piData.append(['Row three column one', str(MemUsage)])
-    piData.append(['Row three column one', str(Disk)])
+    piData.append(["CPU Load", str(CPU)])
+    piData.append(['Memory', str(MemUsage)])
+    piData.append(["Disk", str(Disk)])
 
     piDataTable = AsciiTable(piData)
     piDataTable.inner_heading_row_border = False
     piDataTable.inner_row_border = True
-    piDataTable.title = 'RASPBERRY PI'
+    piDataTable.title = '--RASPBERRY PI'
 
     piHoleData = []
     piHoleData.append(['IP', str(IP)])
@@ -54,13 +54,11 @@ while True:
     piHoleDataTable = AsciiTable(piHoleData)
     piHoleDataTable.inner_heading_row_border = False
     piHoleDataTable.inner_row_border = True
-    piHoleDataTable.title = "PI - HOLE AD BLOCKER"
+    piHoleDataTable.title = "--PI - HOLE AD BLOCKER"
 
     # clear screen
     os.system('clear')
-    print("")
     print(piDataTable.table)
-    print("")
     print("")
     print(piHoleDataTable.table)
 
