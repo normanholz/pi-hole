@@ -66,7 +66,7 @@ while True:
     # QUERIES_FORWARDED = data['queries_forwarded']
     # QUERIES_CACHED = data['queries_cached']
     piHoleData.append(["Ads blocked", str(ADSBLOCKED)])
-    piHoleData.append(["Ads blocked (%)", str(ADSTODAY).strip() + " %"])
+    piHoleData.append(["Ads blocked (%)", str(ADSTODAY).strip() + "%"])
 
     piHoleDataTable = AsciiTable(piHoleData)
     piHoleDataTable.inner_heading_row_border = False
