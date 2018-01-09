@@ -59,15 +59,15 @@ while True:
     piHoleData = []
     piHoleData.append(['IP (Add this as DNS)', str(IP).strip()])
     piHoleData.append(["Clients", str(CLIENTS)])
-    # piHoleData.append(["Domains", str(DOMAINS)])
-    # piHoleData.append(["Domains blocked", str(BLOCKEDDOMAINS)])
+    piHoleData.append(["Domains", str(DOMAINS)])
+    piHoleData.append(["Domains blocked", str(BLOCKEDDOMAINS)])
 
     piHoleData.append(["DNS Queries", str(DNSQUERIES)])
 
     # QUERIES_FORWARDED = data['queries_forwarded']
     # QUERIES_CACHED = data['queries_cached']
 
-    piHoleData.append(["Percentage blocked today", str(ADSTODAY).strip() + "%"])
+    piHoleData.append(["Ads % blocked today", str(ADSTODAY).strip() + " %"])
     piHoleData.append(["Ads blocked today", str(ADSBLOCKED)])
 
     piHoleDataTable = AsciiTable(piHoleData)
