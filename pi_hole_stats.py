@@ -71,7 +71,7 @@ while True:
     piHoleDataTable = AsciiTable(piHoleData)
     piHoleDataTable.inner_heading_row_border = False
     piHoleDataTable.inner_row_border = True
-    piHoleDataTable.title = "--PIHOLE AD BLOCKER"
+    piHoleDataTable.title = "--PI HOLE AD-BLOCKER"
 
     # clear screen
     os.system('clear')
