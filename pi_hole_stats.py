@@ -14,8 +14,8 @@ while True:
     # Shell scripts for system monitoring from here : https://unix.stackexchange.com/questions/119126/command-to-disp$
     cmd = "hostname -I | cut -d\' \' -f1"
     IP = subprocess.check_output(cmd, shell=True)
-    # cmd = "hostname"
-    # HOST = subprocess.check_output(cmd, shell=True)
+    cmd = "hostname"
+    HOST = subprocess.check_output(cmd, shell=True)
     cmd = "top -bn1 | grep load | awk '{printf \"%.2f\", $(NF-2)}'"
     CPU = subprocess.check_output(cmd, shell=True)
     cmd = "free -m | awk 'NR==2{printf \"%s/%sMB %.2f%%\", $3,$2,$3*100/$2 }'"
@@ -35,7 +35,7 @@ while True:
         continue
 
     piData = []
-    piData.append(['IP', str(IP)])
+    piData.append(['Host', str(HOST)])
     piData.append(["CPU Load", str(CPU)])
     piData.append(['Memory', str(MemUsage)])
     piData.append(["Disk", str(Disk)])
@@ -46,7 +46,7 @@ while True:
     piDataTable.title = '--RASPBERRY PI'
 
     piHoleData = []
-    piHoleData.append(['IP', str(IP)])
+    piHoleData.append(['IP (ADD TO DNS)', str(IP)])
     piHoleData.append(["Ads Blocked: ", str(ADSBLOCKED)])
     piHoleData.append(["Clients:     ", str(CLIENTS)])
     piHoleData.append(["DNS Queries: ", str(DNSQUERIES)])
@@ -58,7 +58,9 @@ while True:
 
     # clear screen
     os.system('clear')
+    print("")
     print(piDataTable.table)
+    print("")
     print("")
     print(piHoleDataTable.table)
 
