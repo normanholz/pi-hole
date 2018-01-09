@@ -28,9 +28,19 @@ while True:
         r = requests.get(api_url)
         data = json.loads(r.text)
 
+        DOMAINS = data['unique_domains']
+        BLOCKEDDOMAINS = data['domains_being_blocked']
+
+        QUERIES_FORWARDED = data['queries_forwarded']
+        QUERIES_CACHED = data['queries_cached']
         DNSQUERIES = data['dns_queries_today']
+
         ADSBLOCKED = data['ads_blocked_today']
+        ADSTODAY = data['ads_percentage_today']
+
         CLIENTS = data['unique_clients']
+
+
     except:
         time.sleep(1)
         continue
@@ -48,9 +58,17 @@ while True:
 
     piHoleData = []
     piHoleData.append(['IP (Add this as DNS)', str(IP).strip()])
-    piHoleData.append(["Ads Blocked: ", str(ADSBLOCKED)])
-    piHoleData.append(["Clients:     ", str(CLIENTS)])
-    piHoleData.append(["DNS Queries: ", str(DNSQUERIES)])
+    piHoleData.append(["Clients", str(CLIENTS)])
+    piHoleData.append(["Unique Domains", str(DOMAINS)])
+    piHoleData.append(["Domains blocked", str(BLOCKEDDOMAINS)])
+
+    piHoleData.append(["DNS Queries", str(DNSQUERIES)])
+
+    # QUERIES_FORWARDED = data['queries_forwarded']
+    # QUERIES_CACHED = data['queries_cached']
+
+    piHoleData.append(["Ads % blocked today", str(ADSTODAY)])
+    piHoleData.append(["Ads blocked today", str(ADSBLOCKED)])
 
     piHoleDataTable = AsciiTable(piHoleData)
     piHoleDataTable.inner_heading_row_border = False
